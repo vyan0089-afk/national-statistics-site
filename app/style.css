@@ -1,0 +1,168 @@
+/* StatistikNusa — sistem visual: indigo dalam + pasir hangat + aksen teal.
+   Jenis huruf sistem, tanpa unduhan luar. */
+
+:root {
+  --indigo: #312e81;
+  --indigo-deep: #1e1b4b;
+  --sand: #faf6ef;
+  --sand-2: #f5efe3;
+  --ink: #1c1917;
+  --muted: #57534e;
+  --line: #d6d0c2;
+  --teal: #0d9488;
+  --orange: #c2410c;
+  --card: #ffffff;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* Kepala situs */
+.site-header { background: var(--indigo-deep); color: #fff; }
+.header-inner { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+.brand-name { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.brand-name em { font-style: normal; color: #5eead4; }
+#main-nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+#main-nav a {
+  color: #c7d2fe; text-decoration: none; font-weight: 600;
+  padding: 8px 14px; border-radius: 999px;
+}
+#main-nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
+#main-nav a.active { background: #fff; color: var(--indigo-deep); }
+
+/* Isi */
+#app { padding-top: 28px; padding-bottom: 40px; min-height: 60vh; }
+.page-head h1 { font-size: 32px; margin: 0 0 4px; letter-spacing: -0.02em; color: var(--indigo-deep); }
+.page-sub { margin: 0 0 20px; color: var(--muted); font-size: 17px; }
+
+.controls { display: flex; gap: 20px; flex-wrap: wrap; align-items: end; margin-bottom: 20px; }
+.ctl-label { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; display: flex; flex-direction: column; gap: 6px; }
+.ctl {
+  font: inherit; font-size: 15px; color: var(--ink);
+  background: #fff; border: 1.5px solid var(--line); border-radius: 10px;
+  padding: 9px 12px; min-width: 180px;
+}
+.ctl:focus { outline: 3px solid #99f6e4; border-color: var(--teal); }
+input[type="search"].ctl { min-width: 260px; }
+
+.toggle { display: flex; gap: 6px; }
+.toggle-btn {
+  font: inherit; font-weight: 700; cursor: pointer;
+  border: 1.5px solid var(--line); background: #fff; color: var(--ink);
+  border-radius: 999px; padding: 9px 18px;
+}
+.toggle-btn.active { background: var(--indigo); border-color: var(--indigo); color: #fff; }
+
+/* Kartu */
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px 22px; margin-bottom: 20px;
+}
+.card h2 { font-size: 20px; margin: 0 0 2px; color: var(--indigo-deep); }
+.card-sub { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+.card-note { margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+.kpi-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.kpi-grid.cols-4 .kpi-value { font-size: 28px; }
+.kpi {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px;
+}
+.kpi-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 0 0 6px; }
+.kpi-value { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; color: var(--indigo-deep); margin: 0 0 4px; }
+.kpi-blurb { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
+.src { font-size: 12px; color: #78716c; }
+.empty { color: var(--muted); grid-column: 1 / -1; }
+
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.donut-wrap { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.donut-wrap svg { flex: 0 0 auto; }
+.legend { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.legend li { margin: 6px 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex: 0 0 auto; }
+.donut-big { font-size: 26px; font-weight: 800; fill: var(--indigo-deep); }
+.donut-small { font-size: 12px; fill: var(--muted); }
+
+.insights { list-style: none; margin: 0; padding: 0; }
+.insights li {
+  padding: 12px 0 12px 26px; border-bottom: 1px solid #eee9dd; position: relative; font-size: 15px;
+}
+.insights li:last-child { border-bottom: 0; }
+.insights li::before {
+  content: ""; position: absolute; left: 2px; top: 20px; width: 10px; height: 10px;
+  border-radius: 50%; background: var(--teal);
+}
+.insights li .src { display: block; margin-top: 2px; }
+
+/* Peringkat provinsi */
+.rank-bars { display: flex; flex-direction: column; gap: 10px; }
+.rank-row { display: grid; grid-template-columns: 28px 170px 1fr 64px; align-items: center; gap: 10px; font-size: 14px; }
+.rank-num { color: var(--muted); font-weight: 700; }
+.rank-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rank-track { background: #ede7d8; border-radius: 999px; height: 14px; overflow: hidden; }
+.rank-fill { height: 100%; border-radius: 999px; }
+.rank-val { text-align: right; font-weight: 700; color: var(--indigo-deep); }
+
+/* Tabel */
+.data-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.data-table th, .data-table td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #eee9dd; }
+.data-table th { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+.data-table td.num { text-align: right; font-weight: 700; color: var(--indigo-deep); }
+.sort-btn {
+  font: inherit; font-weight: 700; color: inherit; background: none; border: 0;
+  cursor: pointer; padding: 0; text-transform: uppercase; letter-spacing: 0.04em; font-size: 13px;
+}
+.sort-btn:hover { color: var(--indigo); }
+
+/* Kartu statistik pendidikan/kesehatan */
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.stat-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px;
+}
+.stat-label { font-size: 14px; font-weight: 700; color: var(--muted); margin: 0 0 8px; }
+.stat-value { font-size: 36px; font-weight: 800; letter-spacing: -0.02em; color: var(--indigo-deep); margin: 0 0 6px; }
+.stat-note { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
+
+.chart-svg { width: 100%; height: auto; display: block; }
+.chart-val { font-size: 13px; font-weight: 700; fill: var(--indigo-deep); }
+.chart-lab { font-size: 12px; fill: var(--muted); }
+
+.data-note { color: var(--muted); font-size: 13px; margin: 4px 0 0; }
+
+/* Kaki situs */
+.site-footer { background: var(--sand-2); border-top: 1px solid var(--line); padding: 22px 0 28px; color: var(--muted); font-size: 14px; }
+.site-footer p { margin: 6px 0; }
+
+/* Telepon */
+@media (max-width: 720px) {
+  .header-inner { gap: 10px; }
+  #main-nav { margin-left: 0; }
+  #main-nav a { padding: 7px 10px; font-size: 14px; }
+  .page-head h1 { font-size: 26px; }
+  .kpi-grid, .stat-grid { grid-template-columns: 1fr 1fr; }
+  .kpi-grid.cols-4 { grid-template-columns: 1fr 1fr; }
+  .kpi-grid.cols-4 .kpi-value { font-size: 27px; }
+  .duo { grid-template-columns: 1fr; }
+  .kpi-value { font-size: 27px; }
+  .stat-value { font-size: 29px; }
+  .rank-row { grid-template-columns: 24px 1fr 56px; }
+  .rank-track { display: none; }
+  .controls { gap: 12px; }
+  input[type="search"].ctl, .ctl { min-width: 0; width: 100%; }
+  .ctl-label { width: 100%; }
+  .donut-wrap { justify-content: center; }
+}
